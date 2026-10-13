@@ -11,6 +11,7 @@ import { LoadingScreen } from "@/components/loading-screen"
 import { SplashScreen } from "@/components/splash-screen"
 import { AppShell } from "@/layouts/app-shell"
 import { BackofficeShell } from "./layouts/backoffice-shell"
+import { ManagerShell } from "./layouts/manager-shell"
 
 import Home from "@/pages/Home"
 import Report from "@/pages/Report"
@@ -25,6 +26,8 @@ import SupervisorDashboard from "./pages/supervisor/SupervisorDashboard"
 import AttendanceRequests from "./pages/supervisor/AttendanceRequest"
 import Assignments from "./pages/supervisor/Assignments"
 import Sites from "./pages/supervisor/Sites"
+import InventoryFindings from "./pages/supervisor/InventoryFindings"
+import ManagerDashboard from "./pages/manager/ManagerDashboard"
 
 function App() {
   const [stage, setStage] = useState<"splash" | "loading" | "app">(
@@ -67,7 +70,11 @@ function App() {
             <Route path="/supervisor/attendance-requests" element={<AttendanceRequests />} />
             <Route path="/supervisor/assignments" element={<Assignments />} />
             <Route path="/supervisor/sites" element={<Sites />} />
+            <Route path="/supervisor/inventory-findings" element={<InventoryFindings />} />
           </Route>
+          <Route element={<ManagerShell />}>
+            <Route path="/manager" element={<ManagerDashboard />} />
+            </Route>
         </Route>
         <Route
           path="*"
